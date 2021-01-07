@@ -9,7 +9,7 @@ public class PlaneMovement : MonoBehaviour {
     [SerializeField] private float xMovementSpeed = 15f;
     [SerializeField] private float xMovementRange = 10f;
 
-    private float xThrow;
+    private float xMovement;
 
     void Update() {
         ProcessTranslation();
@@ -17,9 +17,9 @@ public class PlaneMovement : MonoBehaviour {
     }
 
     private void ProcessTranslation() {
-        xThrow = Input.GetAxis("Horizontal");
+        xMovement = Input.GetAxis("Horizontal");
 
-        float xOffset = xThrow * xMovementSpeed * Time.deltaTime;
+        float xOffset = xMovement * xMovementSpeed * Time.deltaTime;
         float xPos = Mathf.Clamp(transform.localPosition.x + xOffset, -xMovementRange, xMovementRange);
 
         transform.localPosition = new Vector3(xPos, transform.localPosition.y, transform.localPosition.z);
@@ -28,7 +28,7 @@ public class PlaneMovement : MonoBehaviour {
     private void ProcessRotation() {
         float pitch = transform.localPosition.y;
         float yaw   = transform.localPosition.x;
-        float roll  = xThrow * rollFactor;
-        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+        float roll  = xMovement * rollFactor;
+        transform.localRotation = Quaternion.Euler(pitch, yaw, -roll);
     }
 }

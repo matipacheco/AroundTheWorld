@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb7bbfab8d4f44c994ff44d2c361236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
+  speed: 300
 --- !u!1 &3003412453021141226
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,6 +70,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 363e3186a231f607f85a793ffb733ec2, type: 3}
       propertyPath: m_Name
       value: PlaneBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 363e3186a231f607f85a793ffb733ec2, type: 3}
+      propertyPath: m_Name
+      value: Helix
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 363e3186a231f607f85a793ffb733ec2, type: 3}
       propertyPath: m_LocalPosition.x
