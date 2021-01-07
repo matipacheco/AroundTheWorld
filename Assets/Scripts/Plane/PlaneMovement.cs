@@ -2,7 +2,6 @@
 using UnityEngine;
 
 public class PlaneMovement : MonoBehaviour {
-
     // Plane movement theory 👇🏾
     // http://elektromot.com/how-to-control-an-aircraft/
     [SerializeField] private float rollFactor = 20f;
