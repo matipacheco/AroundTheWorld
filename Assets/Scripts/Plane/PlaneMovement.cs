@@ -10,7 +10,7 @@ public class PlaneMovement : MonoBehaviour {
 
     private float xMovement;
 
-    void Update() {
+    private void Update() {
         ProcessTranslation();
         ProcessRotation();
     }

@@ -3,7 +3,7 @@
 public class HelixMovement : MonoBehaviour {
     [SerializeField] private float speed = 300f;
 
-    void Update() {
+    private void Update() {
         transform.Rotate(Vector3.left * speed * Time.deltaTime);
     }
 }
