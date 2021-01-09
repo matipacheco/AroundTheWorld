@@ -2,30 +2,46 @@
 using System.Collections;
 
 public class PlaneLighting : MonoBehaviour {
-    StarsLighting dayLighting;
+    private bool lightsOff;
+    private StarsLighting dayLighting;
 
     [SerializeField] float blinkInterval = .5f;
     [SerializeField] private Light[] planeLights;
 
     private void Start() {
         dayLighting = FindObjectOfType<StarsLighting>();
+        TurnLightsOff();
+
         StartCoroutine(BlinkLights());
     }
 
     private IEnumerator BlinkLights() {
         while (true) {
-            if (dayLighting.GetIsDay()) {
-                yield return new WaitForSeconds(blinkInterval);
+            yield return new WaitForSeconds(blinkInterval);
 
-                foreach(Light light in planeLights) {
-                    Blink(light);
+            if (dayLighting.GetIsDay()) {
+                if (!lightsOff) {
+                    TurnLightsOff();
                 }
+            } else {
+                Blink();
             }
         }
     }
 
-    private void Blink(Light light) {
-        light.enabled = !(light.enabled);
-        Debug.Log("blink");
+    private void TurnLightsOff() {
+        lightsOff = true;
+
+        foreach(Light light in planeLights) {
+            light.enabled = false;
+        }
+    }
+
+    private void Blink() {
+        lightsOff = false;
+
+        foreach(Light light in planeLights) {
+            light.enabled = !(light.enabled);
+        }
     }
 }
