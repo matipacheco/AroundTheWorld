@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4760580799989440}
   - component: {fileID: 33397684608669656}
   - component: {fileID: 23130899834029452}
+  - component: {fileID: 2970745865757472386}
   m_Layer: 0
   m_Name: Trees_Green
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2970745865757472386
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454891189569676}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.24653482
+  m_Height: 0.7212609
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.36063105, z: 0.014009953}
