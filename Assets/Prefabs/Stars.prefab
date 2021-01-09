@@ -104,9 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474dce8dfa6df94b7bdbeda7f64d0033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  universeCenter: {fileID: 7747369976476411503}
   sunLight: {fileID: 6959320932341831371}
   moonLight: {fileID: 6814686099258064568}
+  universeCenter: {fileID: 7747369976476411503}
 --- !u!1 &5306412113889260507
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +180,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.61302954, g: 0.7735849, b: 0.7735849, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

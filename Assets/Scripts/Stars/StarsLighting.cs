@@ -2,17 +2,21 @@
 
 public class StarsLighting : MonoBehaviour {
     private bool isDay;
-    [SerializeField] private Transform universeCenter;
+    private Camera mainCamera;
+
     [SerializeField] private Light sunLight;
     [SerializeField] private Light moonLight;
+    [SerializeField] private Transform universeCenter;
+
+    private void Start() {
+        mainCamera = GetComponent<Camera>();
+    }
 
     private void Update() {
         SetIsDay();
-        Debug.Log(isDay);
-        
 
-        // sunLight.gameObject.SetActive(isDay);
-        // moonLight.gameObject.SetActive(!isDay);
+        sunLight.gameObject.SetActive(isDay);
+        moonLight.gameObject.SetActive(!isDay);
     }
 
     private float Distance() {
@@ -23,7 +27,7 @@ public class StarsLighting : MonoBehaviour {
         isDay = (Distance() >= 0);
     }
 
-    public bool IsDay() {
+    public bool GetIsDay() {
         return isDay;
     }
 
