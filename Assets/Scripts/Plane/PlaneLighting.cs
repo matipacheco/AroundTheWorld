@@ -2,6 +2,10 @@
 using System.Collections;
 
 public class PlaneLighting : MonoBehaviour {
+    // Note: for reasons I do not know, Unity hates more than one light on the same object.
+    // To change this, you have to change the Pixel Light Count on Edit > Project Settings > Quality
+    // https://answers.unity.com/questions/813903/unity-hates-more-than-2-spotlights.html?sort=votes
+
     private bool lightsOff;
     private StarsLighting dayLighting;
 
