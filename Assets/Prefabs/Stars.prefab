@@ -104,9 +104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474dce8dfa6df94b7bdbeda7f64d0033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunLight: {fileID: 6959320932341831371}
-  moonLight: {fileID: 6814686099258064568}
   universeCenter: {fileID: 7747369976476411503}
+  lerpFactor: 5
+  sunLight: {fileID: 6959320932341831371}
+  minSunLight: 0.5
+  maxSunLight: 1
+  moonLight: {fileID: 6814686099258064568}
+  minMoonLight: 0.8
+  maxMoonLight: 1
 --- !u!1 &5306412113889260507
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27707163eb8488324be214f78bad56d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 20
+  rotationSpeed: 5
 --- !u!1001 &4949314593573224382
 PrefabInstance:
   m_ObjectHideFlags: 0
