@@ -65,21 +65,23 @@ public class SkyboxLighting : MonoBehaviour {
     }
 
     private GradientAlphaKey[] SetAlphaKey() {
+        // Note: If here all alpha keys are set to zero, SerializedFields Colors in the inspector should be as zero as well!
+
         GradientAlphaKey[] alphaKey = new GradientAlphaKey[3];
 
-        alphaKey[0].alpha = 1.0f;
+        alphaKey[0].alpha = 0.0f;
         alphaKey[0].time  = 0.0f;
 
-        alphaKey[1].alpha = 1.0f;
+        alphaKey[1].alpha = 0.0f;
         alphaKey[1].time  = 0.5f;
 
-        alphaKey[2].alpha = 1.0f;
+        alphaKey[2].alpha = 0.0f;
         alphaKey[2].time  = 1.0f;
         return alphaKey;
     }
 
     public IEnumerator TriggerSunset() {
-        transitionStartTime = Time.time;        
+        transitionStartTime = Time.time;
 
         do {
             mainCamera.backgroundColor = sunsetGradient.Evaluate(
