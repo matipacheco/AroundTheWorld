@@ -19,6 +19,9 @@ public class StarsLighting : MonoBehaviour {
         moonLight.gameObject.SetActive(!isDay);
     }
 
+    private void OnTriggerEnter(Collider other) {
+    }
+
     private float Distance() {
         return transform.position.y - universeCenter.position.y;
     }
