@@ -7,7 +7,8 @@ public class StarsLighting : MonoBehaviour {
 
     [SerializeField] private Transform universeCenter;
 
-    [SerializeField] private float lerpFactor = 2f;
+    // Use this factor to make a softer or harder intensity change 
+    [SerializeField] private float lerpFactor = 1f;
 
     [Header("Sun Settings")]
     [SerializeField] private Light sunLight;
@@ -51,10 +52,11 @@ public class StarsLighting : MonoBehaviour {
         return isDay;
     }
 
-    IEnumerator TriggerDawn() {
-        // Reduce sun's light to its minimum
-        // Increase moon's light to its maximum
+    private IEnumerator TriggerDawn() {
         do {
+            // Reduce sun's light to its minimum
+            // Increase moon's light to its maximum
+
             sunLight.intensity -= Time.deltaTime * lerpFactor;
             moonLight.intensity += Time.deltaTime * lerpFactor;
 
@@ -62,15 +64,17 @@ public class StarsLighting : MonoBehaviour {
 
         } while (sunLight.intensity > minSunLight);
     }
-    IEnumerator TriggerSunset() {
-        // Increase sun's light to its maximum
-        // Reduce moon's light to its minimum
+
+    private IEnumerator TriggerSunset() {
         do {
+            // Increase sun's light to its maximum
+            // Reduce moon's light to its minimum
+
             sunLight.intensity += Time.deltaTime * lerpFactor;
             moonLight.intensity -= Time.deltaTime * lerpFactor;
 
             yield return new WaitForSeconds(.1f);
 
-        } while (sunLight.intensity < minSunLight);
+        } while (sunLight.intensity < maxSunLight);
     }
 }
