@@ -3,7 +3,7 @@ using System.Collections;
 
 public class StarsLighting : MonoBehaviour {
     private bool isDay;
-    private Camera mainCamera;
+    private SkyboxLighting mainCamera;
 
     [SerializeField] private Transform universeCenter;
 
@@ -21,8 +21,11 @@ public class StarsLighting : MonoBehaviour {
     [SerializeField][Range(0f, 1f)] private float minMoonLight = 0.8f;
     [SerializeField][Range(0f, 1f)] private float maxMoonLight = 1f;
 
+    private Gradient sunsetGradient;
+    private Gradient dawnGradient;
+
     private void Start() {
-        mainCamera = GetComponent<Camera>();
+        mainCamera = FindObjectOfType<SkyboxLighting>();
 
         sunLight.intensity  = maxSunLight;
         moonLight.intensity = minMoonLight;
@@ -34,9 +37,11 @@ public class StarsLighting : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (isDay) {
-            StartCoroutine(TriggerDawn());
-        } else {
             StartCoroutine(TriggerSunset());
+            StartCoroutine(mainCamera.TriggerSunset());
+        } else {
+            StartCoroutine(TriggerDawn());
+            StartCoroutine(mainCamera.TriggerDawn());
         }
     }
 
@@ -52,7 +57,7 @@ public class StarsLighting : MonoBehaviour {
         return isDay;
     }
 
-    private IEnumerator TriggerDawn() {
+    private IEnumerator TriggerSunset() {
         do {
             // Reduce sun's light to its minimum
             // Increase moon's light to its maximum
@@ -65,7 +70,7 @@ public class StarsLighting : MonoBehaviour {
         } while (sunLight.intensity > minSunLight);
     }
 
-    private IEnumerator TriggerSunset() {
+    private IEnumerator TriggerDawn() {
         do {
             // Increase sun's light to its maximum
             // Reduce moon's light to its minimum
