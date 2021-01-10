@@ -160,6 +160,11 @@ PrefabInstance:
       propertyPath: sunsetColor.b
       value: 0.1758633
       objectReference: {fileID: 0}
+    - target: {fileID: -4422952335801062502, guid: 08c81d258bff78174a0c673f60aaa751,
+        type: 3}
+      propertyPath: transitionFactor
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5775140589999825880, guid: 08c81d258bff78174a0c673f60aaa751,
         type: 3}
       propertyPath: m_LocalPosition.x

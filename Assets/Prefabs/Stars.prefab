@@ -112,10 +112,6 @@ MonoBehaviour:
   moonLight: {fileID: 6814686099258064568}
   minMoonLight: 0.8
   maxMoonLight: 1
-  dayColor: {r: 0.3529412, g: 0.74509805, b: 0.84313726, a: 0}
-  sunsetColor: {r: 0.9150943, g: 0.6909768, b: 0.241723, a: 0}
-  nightColor: {r: 0.078431375, g: 0.19607843, b: 0.23529412, a: 0}
-  dawnColor: {r: 0.98039216, g: 0.8627451, b: 0.46974012, a: 0}
 --- !u!1 &5306412113889260507
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +433,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: 775f4faea14f74548bc0b4fbe5421231, type: 3}
+      objectReference: {fileID: 4300000, guid: 29a42d161fb716042910225a417ba3fb, type: 3}
     - target: {fileID: 135155053233701784, guid: 194f6bb1469b88746911cd1c0f4f6dc7,
         type: 3}
       propertyPath: m_Enabled

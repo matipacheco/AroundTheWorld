@@ -4,8 +4,10 @@ using UnityEngine;
 public class SkyboxLighting : MonoBehaviour {
     private Camera mainCamera;
 
+    [Header("Gradient Duration Settings")]
     private float transitionStartTime;
-    private const float transitionDuration = 10f;
+    [SerializeField] private float transitionFactor = 1.5f;
+    [SerializeField] private float transitionDuration = 10f;
 
 
     [Header("Skybox Settings")]
@@ -77,21 +79,25 @@ public class SkyboxLighting : MonoBehaviour {
     }
 
     public IEnumerator TriggerSunset() {
-        transitionStartTime = Time.deltaTime;
+        transitionStartTime = Time.time;        
 
         do {
-            mainCamera.backgroundColor = sunsetGradient.Evaluate(Time.deltaTime - transitionStartTime / transitionDuration);
-            yield return new WaitForSeconds(.1f);
+            mainCamera.backgroundColor = sunsetGradient.Evaluate(
+                (Time.time - transitionStartTime) * transitionFactor / transitionDuration
+            );
+            yield return null;
 
         } while (mainCamera.backgroundColor != nightColor);
     }
 
     public IEnumerator TriggerDawn() {
-        transitionStartTime = Time.deltaTime;
+        transitionStartTime = Time.time;
 
         do {
-            mainCamera.backgroundColor = dawnGradient.Evaluate(Time.deltaTime - transitionStartTime / transitionDuration);
-            yield return new WaitForSeconds(.1f);
+            mainCamera.backgroundColor = dawnGradient.Evaluate(
+                (Time.time - transitionStartTime) * transitionFactor / transitionDuration
+            );
+            yield return null;
 
         } while (mainCamera.backgroundColor != dayColor);
     }
